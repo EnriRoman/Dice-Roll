@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Dices</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Dice Id</th>
+      <th>Dice number</th>
+      <th>Dice sides</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @dices.each do |dice| %>
+      <tr>
+        <td><%= dice.id %></td>
+        <td><%= dice.dice_number %></td>
+        <td><%= dice.dice_sides %></td>
+        <td><%= link_to 'Roll', dice %></td>
+        <td><%= link_to 'Edit', edit_dice_path(dice) %></td>
+        <td><%= link_to 'Destroy', dice, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Dice', new_dice_path %>

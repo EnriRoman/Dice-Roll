@@ -1,0 +1,28 @@
+<%= form_with(model: dice) do |form| %>
+  <% if dice.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(dice.errors.count, "error") %> prohibited this dice from being saved:</h2>
+
+      <ul>
+        <% dice.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :dice_number %>
+    <%= form.number_field :dice_number %>
+  </div>
+
+  <div class="field">
+    <%= form.label :dice_sides %>
+    <%= form.number_field :dice_sides %>
+  </div>
+
+  <div class="actions">
+    <%= form.label :result %>
+    <%= form.submit %>
+  </div>
+<% end %>
